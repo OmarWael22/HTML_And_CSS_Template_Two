@@ -8,7 +8,8 @@
     --main-color: #2196f3;
     --main-color-alt: #0a85e9;
     --main-transition: 0.3s;
-    --main-padding: 50px
+    --main-padding: 100px;
+    --section-background: #ececec;
 
 }
 html{
@@ -36,6 +37,62 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+h2.main-heading{
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 34.5px;
+    width: fit-content;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 3px solid;
+    margin: auto;
+    margin-bottom: 75px;
+}
+h2.main-heading::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 50%;
+    left: -25%;
+    transform: translate(-50%, -50%);
+    transition: all calc( var(--main-transition) * 2 );
+    z-index: -1;
+}
+h2.main-heading::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    top: 50%;
+    right: -25%;
+    transform: translate(50%, -50%);
+    transition: all calc( var(--main-transition) * 2 );
+    z-index: -1;
+    
+}
+h2.main-heading:hover::before {
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  transform: none;
+}
+h2.main-heading:hover::after {
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  transform: none;
 }
 /* containers media query */
 @media (min-width:576px){
@@ -187,7 +244,7 @@ a{
 .landing::before{
     content: "";
     position: absolute;
-    background-color: rgb(236, 236, 236);
+    background-color:var(--section-background);
     width: 100%;
     height: 100%;
     top: 0;
@@ -243,7 +300,7 @@ a{
     }
     .landing .text p{
         font-size: 15px;
-        max-width: 250px;
+        max-width: 80%;
     }
 }
 @media (max-width : 991px){
@@ -287,4 +344,115 @@ a{
     }
 }
 /* End Landing Styles */
+/* Start Articles Styles */
+.articles{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px
+}
+.articles .cat{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: var(--main-transition);
+}
+.articles .cat .text{
+    padding: 20px;
+    border-bottom: 1px solid #9d9c9c5c
+}
+.articles .cat .text h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+}
+.articles .cat .text p{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+    
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.articles .cat img{
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 100%;
+}
+.articles .cat .info{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-color);
+}
+.articles .cat .info a{
+    font-weight: bold;
+}
+.articles .cat:hover .info i{
+    animation:  arrow-right linear 1s infinite normal;
+}
+@keyframes arrow-right{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(5px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
 
+}
+.articles .cat:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+    transition: var(--main-transition);
+}
+/* End Articles Styles */
+/* Start Gallery Styles */
+.gallery{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    position: relative;
+}
+.gallery::before{
+    content: "";
+    position: absolute;
+    background-color: var(--section-background);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+.gallery .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px,1fr));
+    gap:25px;
+}
+.gallery .item{
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px; /* optional: for nice rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.gallery .item .image-wrapper{
+    overflow: hidden;
+    
+}
+.gallery .item img{
+    max-width: 100%;
+    overflow: hidden;
+    transform: scale(1) rotate(0deg);
+    transition: var(--main-transition);
+    
+}
+.gallery .item:hover img{
+    transform : scale(1.1) rotate(3deg);
+    transition: var(--main-transition);
+}
+/* End Gallery Styles */
