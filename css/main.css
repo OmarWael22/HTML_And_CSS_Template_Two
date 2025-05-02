@@ -6,7 +6,7 @@
 }
 :root{
     --main-color: #2196f3;
-    --main-color-alt: #1787e0;
+    --main-color-alt: #0a85e9;
     --main-transition: 0.3s;
     --main-padding: 50px
 
@@ -53,7 +53,7 @@ a{
         width:960px;
     }
 }
-@media (min-width:1300px){
+@media (min-width:1200px){
     .container{
         width:1140px;
     }
@@ -62,40 +62,63 @@ a{
 
 /* End Global Styles */
 /* Start Header Styles */
-
+.header{
+    background-color: white;
+}
 .header .container{
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    height: 72px;
     position: relative;
    
+}
+@media (max-width: 767px){
+    .header .container{
+        justify-content: center;
+    }
 }
 .header .logo{
     font-size:26px;
     font-weight: bold;
     color : var(--main-color);
-    height:  100%;
+    height:  72px;
    
 }
-.header .nav{
-    height: 100%;
+@media (max-width: 767px){
+    .header .logo{
+        width: 100%;
+    }
+
 }
+    
+
+.header .logo:hover{
+    color:var(--main-color-alt);
+    transform: scale(1.1);
+    transition: var(--main-transition);
+}
+
 .header .nav ul{
     display:flex;
     justify-content: space-between;
-    height: 100%;
+   
 }
 .header .nav ul li {
     margin-left: 20px;
     padding-left: 10px;
     padding-right: 10px;
     position: relative;
-    height: 100%;
+    height: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media (max-width: 767px){
+    .header .nav ul li{
+        margin: 0px;
+        padding: 20px;
+    }
 }
 .header .nav ul li::before{
     content: "";
@@ -109,29 +132,29 @@ a{
 .header .nav ul li:hover{
     color: var(--main-color);
     transition: var(--main-transition);
-    background-color: #ECECEC;
+    background-color: #fafafa;
 }
 .header .nav ul li:hover::before{
     width: 100%;
     transition: var(--main-transition);
 }
-.header .mega-menu{
-    display: flex;
+.header .mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
     padding: 25px;
     justify-content: space-between;
-    width: 100%;
     border-bottom: var(--main-color) solid 2px;
-    /* position: absolute;
-    bottom: 0; */
-    display: flex;   
+    z-index: 100;
 }
-.header .nav ul li:last-of-type:hover  .header .mega-menu {
-    display: flex;
-}
+
 .header .mega-menu .image{
     width: 40%;
 }
-@media (max-width: 992px){
+@media (max-width: 991px){
     .header .mega-menu .image{
         display: none;
     }
@@ -147,7 +170,7 @@ a{
     border-bottom: #d6d5d5 solid 1px;
 }
 .header .mega-menu .links ul li:hover{
-    background-color: #ECECEC;
+    background-color: #FAFAFA;
     transition: var(--main-transition);
 }
 .header .mega-menu .links ul li:last-of-type{
@@ -157,4 +180,92 @@ a{
     margin-right: 8px;
 }
 /* End Header Styles */
+/* Start Landing Styles */
+.landing{
+    position: relative;
+}
+.landing::before{
+    content: "";
+    position: absolute;
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: bottom left;
+}
+.landing .container{
+    height: calc(100vh - 72px);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: calc(72px / 1);
+}
+@media (max-width: 991px){
+    .landing .container{
+       justify-content: center;
+
+    }
+}
+.landing .text h1{
+    font-size: 40px;
+    letter-spacing: -2px;
+    margin:0px;
+}
+@media (max-width: 991px){
+    .landing .text{
+        text-align: center;
+    }
+}
+.landing .text p{
+    font-size: 20px;
+    line-height: 1.7;
+    color: #666;
+    margin:0;
+    margin-top:5px;
+    max-width: 500px;
+}
+.landing .image img{
+    width: 500px;
+    animation: up-and-down 5s linear infinite normal;
+}
+@media (max-width : 991px){
+    .landing .image {
+        display: none;
+    }
+}
+@keyframes up-and-down {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.landing a{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--main-color);
+    animation: scroll-down 1s linear infinite normal;
+}
+@keyframes scroll-down {
+    0% {
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px);
+    }
+}
+/* End Landing Styles */
 
