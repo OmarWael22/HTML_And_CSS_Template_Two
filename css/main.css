@@ -117,7 +117,7 @@ a{
 @media (max-width: 767px){
     .header .nav ul li{
         margin: 0px;
-        padding: 20px;
+        padding: 10px;
     }
 }
 .header .nav ul li::before{
@@ -218,8 +218,13 @@ a{
 @media (max-width: 991px){
     .landing .text{
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
+
 .landing .text p{
     font-size: 20px;
     line-height: 1.7;
@@ -231,6 +236,15 @@ a{
 .landing .image img{
     width: 500px;
     animation: up-and-down 5s linear infinite normal;
+}
+@media (max-width: 767px){
+    .landing .text h1{
+        font-size: 30px;
+    }
+    .landing .text p{
+        font-size: 15px;
+        max-width: 250px;
+    }
 }
 @media (max-width : 991px){
     .landing .image {
@@ -255,6 +269,11 @@ a{
     transform: translateX(-50%);
     color: var(--main-color);
     animation: scroll-down 1s linear infinite normal;
+}
+@media (max-width: 767px){
+    .landing a{
+        top: 80%;
+    }
 }
 @keyframes scroll-down {
     0% {
