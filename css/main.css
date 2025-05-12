@@ -8,8 +8,10 @@
     --main-color: #2196f3;
     --main-color-alt: #0a85e9;
     --main-transition: 0.3s;
+    --secondary-transition: 0.5s;
     --main-padding: 100px;
     --section-background: #ececec;
+    --section-paragraph: #666;
 
 }
 html{
@@ -456,3 +458,113 @@ h2.main-heading:hover::after {
     transition: var(--main-transition);
 }
 /* End Gallery Styles */
+/* Start Features Styles */
+.features{
+    padding-top : var(--main-padding);
+    padding-bottom : var(--main-padding);
+}
+.features .container{
+    display: grid;
+    grid-template-columns : repeat( auto-fit , minmax(300px , 1fr ));
+    gap: 30px;
+}
+.features .feat{
+    border: 1px #e4e4e4 solid;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+.features .image{
+    position: relative;
+}
+.features .image::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.features .image::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0px 0px 170px 500px;
+    border-color: transparent transparent white transparent;
+    transition: var(--secondary-transition);
+    z-index: 3;
+}
+.features .image img{
+    width: 100%;
+}
+.features .text {
+    text-align: center;
+}
+.features .text h3{
+    font-size: 40px;
+    font-weight:bold;
+    position: relative;
+    width: fit-content;
+    margin:auto;
+    
+}
+.features .text h3::after{
+    content: "";
+    background-color: var(--main-color);
+    position: absolute;
+    width: 70%;
+    height: 4px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.features .text p{
+   margin : 25px auto;
+   padding: 20px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--section-paragraph);
+}
+ .features .text a{
+    display: block;
+    width: fit-content;
+    margin: auto;
+    position: relative; 
+    color: var(--main-color);
+    padding: 10px 50px;
+    font-weight: bold;
+    font-size: 22px;
+    border: 3px solid ;
+    border-radius: 5px;
+   
+    
+ }
+ .features .text a::before{
+    content:"";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition :  width var(--secondary-transition);
+    z-index: -1;
+ }
+.features .feat:hover .image::after{
+    border-width: 170px 500px 170px 0;
+    
+}
+.features .feat:hover a::before{
+    width: 100%;
+    /* transition-duration: var(--main-transition) ; */
+}
+.features .feat:hover a{
+    color: white;
+}
+
+/* End Features Styles */
