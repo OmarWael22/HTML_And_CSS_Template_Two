@@ -566,5 +566,65 @@ h2.main-heading:hover::after {
 .features .feat:hover a{
     color: white;
 }
-
 /* End Features Styles */
+/* Start Testimonials Styles */
+.testimon {
+    position: relative;
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+.testimon::before{
+    content: "";
+    position: absolute;
+    background-color: var(--section-background);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+.testimon .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px , 1fr));
+    gap: 30px;
+}
+.testimon .profile{
+    position: relative;
+    background-color: white;
+    padding : 20px;
+    border-radius: 8px;
+}
+.testimon .profile img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top:0;
+    right: 0;
+    transform: translate(15%,-40%);
+    border: 10px solid var(--section-background);
+}
+.testimon .profile h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+}
+.testimon .profile h5{
+    color : #777;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 15px 0px;
+}
+.testimon .profile .stars .fa-solid{
+    color: gold;
+    margin:0px;
+}
+/* .testimon .profile:not(:nth-of-type(4)) .stars i:last-of-type{
+
+    color: white;
+} */
+.testimon .profile p{
+    color : var(--section-paragraph);
+    line-height: 1.7;
+    margin: 12px 0px;
+}
+/* End Testimonials Styles */
